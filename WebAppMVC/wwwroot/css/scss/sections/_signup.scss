@@ -1,4 +1,4 @@
-#signup {
+.signup {
     height: 100%;
 
     .container {
@@ -6,7 +6,6 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-    }
     
     @include lg {
         width: 60%;
@@ -46,7 +45,7 @@
                 grid-area: password;
             }
 
-            #form-confirm: {
+            #form-confirm {
                 grid-area: confirm;
             }
 
@@ -60,6 +59,6 @@
 
             }
         }
-
+    }
     }
 }
