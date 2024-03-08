@@ -1,46 +1,87 @@
 form {
     width: 100%;
     display: grid;
+    gap: 1rem;
 
-
-    .input-group {
-        display: grid;
+    a {
+        text-decoration: underline;
     }
-    
-    .checkbox-group {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 0.5rem;
 
-        input[type="checkbox"] {
-            height: 1.2rem;
-            width: 1.2rem;
-            border: 0.063rem solid red;
+    .content {
+
+
+        .input-group {
+            display: grid;
         }
-        
+
+        .checkbox {
+            span {
+                display: block;
+
+                &.field-validation-error {
+                    position: static;
+                    top: 0;
+                    right: 0;
+                    @include text-s;
+                    color: $danger;
+                }
+            }
+        }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+
+            input[type ="checkbox"] {
+                height: 1.2rem;
+                width: 1.2rem;
+            }
+
+            label {
+                margin-bottom: 0;
+                font-weight: 400;
+            }
+        }
+
         label {
-            margin: 0;
-            font-weight: 400;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        input {
+            padding: 1rem;
+            border-radius: 8px !important;
+            border: 1px solid $gray-700;
+
+            &::placeholder {
+                opacity: 0.4;
+            }
+
+            &.input-validation-error {
+                border: 1px solid $danger !important;
+                color: $danger;
+
+                &::placeholder {
+                    color: $danger;
+                }
+            }
         }
     }
-    
-    label {
-        margin-bottom: 0.188rem;
-        font-weight: 700;
-    }
 
-    input {
+    textarea {
         padding: 1rem;
         border-radius: 0.5rem !important;
-        border: 0.063rem solid $gray-400;
+        border: 0.063rem solid $gray-700;
+        resize: none;
 
         &::placeholder {
             opacity: 0.4;
         }
 
         &.input-validation-error {
-            border: 0.063rem solid $danger !important;
+            border: 1px solid $danger !important;
             color: $danger;
 
             &::placeholder {
