@@ -13,7 +13,6 @@
         z-index: -1;
         width: 100%;
 
-
         @include lg {
             width: 45%;
         }
@@ -41,15 +40,9 @@
             }
 
             h1 {
-
                 @include h2;
 
                 @include lg {
-
-                    @include h5;
-                }
-
-                @include xl {
                     @include d4;
                 }
             }
@@ -84,7 +77,6 @@
 
                 @include lg {
                     display: flex;
-                    margin-bottom: 100px;
                 }
 
                 img {
