@@ -581,6 +581,17 @@ footer .container .social-media {
     font-family: "Manrope", sans-serif;
     font-weight: 800;
     color: #0B0F19;
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase .container .content h1 {
+    line-height: 160%;
+    font-weight: 400;
+    color: #565973;
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    color: #0B0F19;
     font-size: 56px !important;
   }
 }
@@ -622,6 +633,7 @@ footer .container .social-media {
 @media (min-width: 992px) {
   .showcase .container .content .brands {
     display: flex;
+    margin-bottom: 100px;
   }
 }
 .showcase .container .content .brands img {
@@ -631,6 +643,7 @@ footer .container .social-media {
 .features {
   background: #F3F6FF;
   padding: 80px 0;
+  margin-top: 6em;
 }
 .features .container {
   display: grid;
@@ -704,29 +717,148 @@ footer .container .social-media {
   font-size: 16px !important;
 }
 
-#signup {
+.lightdark {
+  display: flex;
+}
+.lightdark .content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.lightdark .content .laptop {
+  position: absolute;
+  z-index: 1;
+  padding-top: 17em;
+}
+.lightdark .content .arrow {
+  position: absolute;
+  padding-top: 33em;
+  z-index: 1;
+  top: 1;
+}
+.lightdark .content .light-box {
+  position: relative;
+  flex: 1;
+  width: 50%;
+  padding: 475px 0;
+}
+.lightdark .content .light-box h1 {
+  position: absolute;
+  top: 0;
+  padding-top: 10%;
+  padding-left: 0.5%;
+  color: #0b0f19;
+  font-family: "Manrope", sans-serif;
+  font-weight: 900;
+}
+.lightdark .content .black-box {
+  position: relative;
+  flex: 1;
+  background: #0B0F19;
+  width: 50%;
+  padding: 475px 0;
+}
+.lightdark .content .black-box h1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 10%;
+  padding-right: 0.5%;
+  color: white;
+  font-family: "Manrope", sans-serif;
+  font-weight: 900;
+}
+
+.taskmaster {
+  display: flex;
+}
+.taskmaster .container {
+  padding: 100px 0;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .taskmaster .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 0;
+  }
+}
+.taskmaster .container img {
+  width: auto;
+  height: auto;
+}
+@media (min-width: 992px) {
+  .taskmaster .container img {
+    width: auto;
+  }
+}
+.taskmaster .container .box {
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  margin-left: 200px;
+}
+@media (min-width: 992px) {
+  .taskmaster .container .box {
+    margin-top: 120px;
+    text-align: left;
+    margin-left: 0;
+  }
+}
+.taskmaster .container .box p i {
+  color: blue;
+  margin-right: 5px;
+}
+.taskmaster .container .box a {
+  width: 50%;
+  margin-top: 50px;
+}
+
+.appsection {
+  width: 100%;
+  background-color: #F3F6FF;
+  margin: 2em 0px;
+}
+.appsection .container {
+  display: flex;
+  padding-left: 10em;
+}
+.appsection .container .download .content-box {
+  margin-top: 2em;
+  display: flex;
+}
+.appsection .container .download .content-box .googleplay {
+  margin-top: 5em;
+  margin-left: 5em;
+}
+.appsection .container .download .content-box .appstore {
+  margin-top: 5em;
+  margin-left: 5em;
+}
+
+.signup {
   height: 100%;
 }
-#signup .container {
+.signup .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 @media (min-width: 992px) {
-  #signup {
+  .signup {
     width: 60%;
   }
 }
 @media (min-width: 1200px) {
-  #signup {
+  .signup {
     width: 40%;
   }
 }
-#signup form {
+.signup form {
   padding: 1rem;
 }
-#signup form .content {
+.signup form .content {
   display: grid;
   gap: 1rem 2rem;
   grid-template-columns: 1fr;
@@ -734,72 +866,72 @@ footer .container .social-media {
   #form-confirm-grid-area: confirm;
 }
 @media (min-width: 768px) {
-  #signup form .content {
+  .signup form .content {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
   }
 }
-#signup form .content #form-firstname {
+.signup form .content #form-firstname {
   grid-area: firstname;
 }
-#signup form .content #form-lastname {
+.signup form .content #form-lastname {
   grid-area: lastname;
 }
-#signup form .content #form-email {
+.signup form .content #form-email {
   grid-area: email;
 }
-#signup form .content #form-password {
+.signup form .content #form-password {
   grid-area: password;
 }
-#signup form .content #form-terms {
+.signup form .content #form-terms {
   grid-area: terms;
   padding: 1rem 0;
 }
-#signup form .content #form-submit {
+.signup form .content #form-submit {
   grid-area: button;
 }
 
-#signin {
+.signin {
   height: 100%;
 }
-#signin .container {
+.signin .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 @media (min-width: 992px) {
-  #signin .container {
+  .signin .container {
     width: 60%;
   }
 }
 @incldude xl {
-  #signin .container {
+  .signin .container {
     width: 30%;
   }
 }
-#signin .container form {
+.signin .container form {
   padding: 1rem;
 }
-#signin .container form .content {
+.signin .container form .content {
   display: grid;
   gap: 1rem 2rem;
   grid-template-columns: 1fr;
   grid-template-areas: "email" "password" "remember" "button" "forgot";
 }
-#signin .container form .content #form-email {
+.signin .container form .content #form-email {
   grid-area: email;
 }
-#signin .container form .content #form-password {
+.signin .container form .content #form-password {
   grid-area: password;
 }
-#signin .container form .content #form-remember {
+.signin .container form .content #form-remember {
   grid-area: remember;
 }
-#signin .container form .content #form-button {
+.signin .container form .content #form-button {
   grid-area: button;
 }
-#signin .container form .content #form-forgot-password {
+.signin .container form .content #form-forgot-password {
   width: 100%;
   grid-area: forgot;
   margin: 1rem 0 0 0;
@@ -921,4 +1053,108 @@ footer .container .social-media {
   margin: 20px 0;
   display: flex;
   gap: 20px;
+}
+
+.work-tools .container .headtext {
+  text-align: center;
+  padding: 50px 125px;
+}
+@media (min-width: 992px) {
+  .work-tools .container .headtext {
+    padding: 100px 250px;
+  }
+}
+.work-tools .container .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 100px;
+}
+@media (min-width: 992px) {
+  .work-tools .container .content {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+.work-tools .container .content .content-box img {
+  margin-bottom: 20px;
+}
+
+#newsletter {
+  background-color: #F3F6FF;
+}
+#newsletter .container .headtext {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+@media (min-width: 992px) {
+  #newsletter .container .headtext {
+    margin-right: 100px;
+  }
+}
+#newsletter .container .headtext img {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+#newsletter .container .content {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  gap: 15px;
+}
+#newsletter .container .content h5 {
+  width: 200px;
+  margin-right: 40px;
+}
+#newsletter .container .content .content-box {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 20px;
+}
+@media (min-width: 992px) {
+  #newsletter .container .content .content-box {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}
+#newsletter .container .text-box {
+  padding-bottom: 80px;
+  position: relative;
+}
+#newsletter .container .text-box i {
+  position: absolute;
+  left: 105px;
+  margin-top: 10px;
+  font-size: 150%;
+}
+@media (min-width: 992px) {
+  #newsletter .container .text-box i {
+    position: absolute;
+    left: 255px;
+    margin-top: 10px;
+    font-size: 150%;
+  }
+}
+#newsletter .container .text-box form {
+  display: flex;
+  justify-content: center;
+}
+#newsletter .container .text-box form input {
+  width: 50%;
+  border-radius: 10px;
+  padding-left: 3em;
+}
+#newsletter .container .text-box form input::placeholder {
+  padding-left: 30px;
+}
+#newsletter .container .text-box form a {
+  margin-left: 20px;
+}
+#newsletter .container .text-box p {
+  justify-content: left;
+  padding-top: 20px;
+  padding-left: 250px;
+}
+#newsletter .container .text-box p span {
+  color: rgb(73, 73, 245);
 }

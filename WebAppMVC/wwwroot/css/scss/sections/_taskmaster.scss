@@ -1,0 +1,51 @@
+.taskmaster {
+    display: flex;
+
+    .container {
+        padding: 100px 0;
+        justify-content: center;
+
+        @include lg {
+            display: flex;
+            justify-content: space-between;
+            padding: 100px 0;
+        }
+
+        img {
+            width: auto;
+            height: auto;
+
+            @include lg {
+                width: auto;
+            }
+        }
+
+
+        .box {
+            text-align: left;
+            justify-content: center;
+            align-items: center;
+            margin-left: 200px;
+
+
+            @include lg {
+                margin-top: 120px;
+                text-align: left;
+                margin-left: 0;
+            }
+
+            p {
+
+                i {
+                    color: blue;
+                    margin-right: 5px;
+                }
+            }
+
+            a {
+                width: 50%;
+                margin-top: 50px;
+            }
+        }
+    }
+}

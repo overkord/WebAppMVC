@@ -1,0 +1,95 @@
+#newsletter {
+    background-color: $gray-100;
+
+    .container {
+
+        .headtext {
+            display: flex;
+            justify-content: center;
+            padding-top: 100px;
+
+            @include lg {
+                margin-right: 100px;
+            }
+
+            img {
+                margin-top: 20px;
+                margin-left: 30px;
+            }
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+            gap: 15px;
+
+            h5 {
+                width: 200px;
+                margin-right: 40px;
+            }
+
+            .content-box {
+                display: grid;
+                grid-template-rows: 1fr;
+                gap: 20px;
+
+                @include lg {
+                    grid-template-columns: 1fr 1fr 1fr;
+                    gap: 20px;
+                }
+            }
+        }
+
+        .text-box {
+            padding-bottom: 80px;
+            position: relative;
+
+            i {
+                position: absolute;
+                left: 105px;
+                margin-top: 10px;
+                font-size: 150%;
+
+                @include lg {
+                    position: absolute;
+                    left: 255px;
+                    margin-top: 10px;
+                    font-size: 150%;
+                }
+            }
+
+
+            form {
+                display: flex;
+                justify-content: center;
+
+
+                // envelope moving when i want to add placeholder text etc, need to change some of this padding if i remember
+                input {
+                    width: 50%;
+                    border-radius: 10px;
+                    padding-left: 3em;
+
+                    &::placeholder {
+                        padding-left: 30px;
+                    }
+                }
+
+                a {
+                    margin-left: 20px;
+                }
+            }
+
+            p {
+                justify-content: left;
+                padding-top: 20px;
+                padding-left: 250px;
+
+                span {
+                    color: rgb(73, 73, 245);
+                }
+            }
+        }
+    }
+}

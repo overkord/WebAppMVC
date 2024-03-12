@@ -1,0 +1,38 @@
+.appsection {
+    width: 100%;
+    background-color: $gray-100;
+    margin: 2em 0px;
+
+    .container {
+        display: flex;
+        padding-left: 10em;
+        // margin-top: 3em;
+
+        .download {
+            // text-align: center;
+            // padding-right: 10em;
+
+
+            .content-box {
+                margin-top: 2em;
+                display: flex;
+
+                .apple {
+                }
+
+                .google {
+                }
+
+                .googleplay {
+                    margin-top: 5em;
+                    margin-left: 5em;
+                }
+
+                .appstore {
+                    margin-top: 5em;
+                    margin-left: 5em;
+                }
+            }
+        }
+    }
+}

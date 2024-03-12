@@ -1,0 +1,32 @@
+.work-tools {
+
+    .container {
+
+        .headtext {
+            text-align: center;
+            padding: 50px 125px;
+
+            @include lg {
+                padding: 100px 250px;
+            }
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 100px;
+
+            @include lg {
+                grid-template-columns: 1fr 1fr 1fr 1fr
+            }
+
+            .content-box {
+
+                img {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
