@@ -6,30 +6,26 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-    }
-    
-    @include lg {
-        width: 60%;
-    }
 
-    @include xl {
-        width: 40%;
-    }
+        @include lg {
+            width: 60%;
+        }
 
-    form {
-        padding: 1rem;
+        @include xl {
+            width: 40%;
+        }
 
         .content {
             display: grid;
             gap: 1rem 2rem;
             grid-template-columns: 1fr;
             grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
-        
+
             @include md {
                 grid-template-columns: 1fr 1fr;
                 grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
             }
-            
+
             #form-firstname {
                 grid-area: firstname;
             }
@@ -46,7 +42,7 @@
                 grid-area: password;
             }
 
-            #form-confirm: {
+            #form-confirm {
                 grid-area: confirm;
             }
 
@@ -57,9 +53,7 @@
 
             #form-submit {
                 grid-area: button;
-
             }
         }
-
     }
 }

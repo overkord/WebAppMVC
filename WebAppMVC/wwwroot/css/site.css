@@ -846,48 +846,47 @@ footer .container .social-media {
   height: 100%;
 }
 @media (min-width: 992px) {
-  .signup {
+  .signup .container {
     width: 60%;
   }
 }
 @media (min-width: 1200px) {
-  .signup {
+  .signup .container {
     width: 40%;
   }
 }
-.signup form {
-  padding: 1rem;
-}
-.signup form .content {
+.signup .container .content {
   display: grid;
   gap: 1rem 2rem;
   grid-template-columns: 1fr;
   grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
-  #form-confirm-grid-area: confirm;
 }
 @media (min-width: 768px) {
-  .signup form .content {
+  .signup .container .content {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
   }
 }
-.signup form .content #form-firstname {
+.signup .container .content #form-firstname {
   grid-area: firstname;
 }
-.signup form .content #form-lastname {
+.signup .container .content #form-lastname {
   grid-area: lastname;
 }
-.signup form .content #form-email {
+.signup .container .content #form-email {
   grid-area: email;
 }
-.signup form .content #form-password {
+.signup .container .content #form-password {
   grid-area: password;
 }
-.signup form .content #form-terms {
+.signup .container .content #form-confirm {
+  grid-area: confirm;
+}
+.signup .container .content #form-terms {
   grid-area: terms;
   padding: 1rem 0;
 }
-.signup form .content #form-submit {
+.signup .container .content #form-submit {
   grid-area: button;
 }
 

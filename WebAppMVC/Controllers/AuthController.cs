@@ -23,9 +23,7 @@ public class AuthController : Controller
         return RedirectToAction("SignIn", "Auth");
     }
 
-
-    
-    
+  
     [Route("/signin")]
     [HttpGet]
     public IActionResult SignIn()
@@ -33,6 +31,8 @@ public class AuthController : Controller
         var viewModel = new SignInViewModel();
         return View(viewModel);
     }
+
+
 
     [Route("/signin")]
     [HttpPost]
@@ -47,7 +47,7 @@ public class AuthController : Controller
         // if (result)
            // return RedirectToAction("SignIn", "Auth");
 
-        viewModel.ErrorMessaage = "Incorrect email or password";
+        viewModel.ErrorMessage = "Incorrect email or password";
         return View(viewModel);
 
     }
