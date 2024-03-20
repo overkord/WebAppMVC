@@ -1,9 +1,11 @@
-﻿using WebAppMVC.Models;
+﻿using Infrastructures.Entities;
+using WebAppMVC.Models;
 
 namespace WebAppMVC.ViewModels;
 
 public class AccountDetailsViewModel
 {
+    public UserEntity User { get; set; } = null!;
     public string Title { get; set; } = "Account Details";
     public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
     {

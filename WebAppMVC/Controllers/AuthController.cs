@@ -1,4 +1,5 @@
 ﻿using Infrastructures.Entities;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,13 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     [HttpGet]
     public IActionResult SignUp()
     {
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Index", "Profile");
+        }
+
         var viewModel = new SignUpViewModel();
+        ViewData["Title"] = viewModel.Title;
         return View(viewModel);
     }
 
@@ -28,8 +35,8 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
             var exists = await _userManager.Users.AnyAsync(x => x.Email == viewModel.Form.Email);
             if (exists)
             {
-                ModelState.AddModelError("AlreadyExists", "User with the sam email address alaready exists");
-                ViewData["ErrorMessage"] = "User with the same email address already exists";
+                ModelState.AddModelError("AlreadyExists", "User with the same email already exists");
+                ViewData["ErrorMessage"] = "User with the same email already exists";
                 return View(viewModel);
             }
 
@@ -45,22 +52,25 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
             if (result.Succeeded)
             {
                 return RedirectToAction("SignIn", "Auth");
-
             }
         }
-            return View(viewModel);
+
+        return View(viewModel);
     }
 
-  
     [Route("/signin")]
     [HttpGet]
     public IActionResult SignIn()
     {
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Index", "Profile");
+        }
+
         var viewModel = new SignInViewModel();
+        ViewData["Title"] = viewModel.Title;
         return View(viewModel);
     }
-
-
 
     [Route("/signin")]
     [HttpPost]
@@ -88,5 +98,44 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         viewModel.ErrorMessage = "Incorrect email or password";
         return View(viewModel);
 
+    }
+
+    [Route("/signout")]
+    [HttpGet]
+    public new async Task<IActionResult> SignOut()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Home", "Default");
+    }
+
+    [HttpGet]
+    [Route("/auth/details")]
+    public async Task<IActionResult> Details()
+    {
+        if (!_signInManager.IsSignedIn(User))
+        return RedirectToAction("SignIn", "Account");
+
+        var userEntity = await _userManager.GetUserAsync(User);
+
+        var viewModel = new AccountDetailsViewModel()
+        {
+            User = userEntity!
+        };
+        
+        return View(viewModel);
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> BasicInfo(AccountDetailsViewModel viewModel)
+    {
+        var result = await _userManager.UpdateAsync(viewModel.User);
+        if (!result.Succeeded)
+        {
+            ModelState.AddModelError("Failed To Save Data", "Unable to save the data");
+            ViewData["ErrorMessage"] = "Unable to save the data";
+        }
+
+        return RedirectToAction("Details", "Account", viewModel);
     }
 }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="sv-se">
     <head>
         <meta charset="UTF-8">
@@ -8,10 +9,12 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         @if (!string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString())) { <title>@ViewData["Title"] - Silicon</title>}
         else { <title>@ViewData["Title"] - Silicon</title> }
+        
     </head>
     <body>
 
         <div class="wrapper">
+            @inject SignInManager<UserEntity> _signInManager
         <header>
             <div class="container">
                 <a id="logo" href="home.html"><img src="~/images/silicon-logo-light_theme.svg" alt=""></a>
@@ -20,6 +23,10 @@
                     <nav>
                         <a class="menu-link" href="#showcase">Overview</a>
                         <a class="menu-link" href="#features">Features</a>
+                        @if (_signInManager.IsSignedIn(User))
+                        {
+                            <a class="menu-link" a asp-action="Index" asp-controller="Courses">Courses</a>
+                        }
                         <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
                     </nav>
                 </div>
@@ -34,8 +41,16 @@
                 </div>
 
                 <div class="account-buttons">
-                    <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign In</span></a>
-                    <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+                    @if (_signInManager.IsSignedIn(User))
+                    {
+                        <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-sharp fa-regular fa-arrow-right-from-bracket"></i><span>Sign Out</span></a>
+                    }
+                    else
+                    {
+                        <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-regular fa-right-to-bracket"></i><span>Sign In</span></a>
+                        <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
+                    }
+
                 </div>
             </div>
         </header>
