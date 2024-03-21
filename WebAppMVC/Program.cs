@@ -1,6 +1,7 @@
 using Infrastructures.Contexts;
 using Infrastructures.Entities;
 using Microsoft.EntityFrameworkCore;
+using WebAppMVC.Helpers.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,13 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.Cookie.HttpOnly = true;
+    x.LoginPath = "/signin";
+    x.LogoutPath = "/signup";
+});
+
 
 var app = builder.Build();
 app.UseHsts();
@@ -22,7 +30,13 @@ app.UseStatusCodePagesWithReExecute("/error", "?statusCode={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+
+app.UseAuthentication();
+app.UseUserSessionValidation();
 app.UseAuthorization();
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

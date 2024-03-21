@@ -1,11 +1,15 @@
 ﻿using Infrastructures.Entities;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAppMVC.ViewModels;
 
 namespace WebAppMVC.Controllers;
+
+
+[Authorize]
 
 public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
 {
@@ -102,9 +106,6 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     [Route("/auth/details")]
     public async Task<IActionResult> Details()
     {
-        if (!_signInManager.IsSignedIn(User))
-        return RedirectToAction("SignIn", "Auth");
-
         var userEntity = await _userManager.GetUserAsync(User);
 
         var viewModel = new AccountDetailsViewModel()
