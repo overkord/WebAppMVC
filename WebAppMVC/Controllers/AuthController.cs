@@ -76,7 +76,6 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     [HttpPost]
     public async Task<IActionResult> SignIn(SignInViewModel viewModel)
     {
-        
         if (ModelState.IsValid)
         {
             var result = await _signInManager.PasswordSignInAsync(viewModel.Form.Email, viewModel.Form.Password, viewModel.Form.RememberMe, false);
@@ -89,15 +88,6 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         ModelState.AddModelError("IncorrectValues", "Incorrect email or password");
         ViewData["ErrorMessage"] = "Incorrect email or password";
         return View(viewModel);
-        
-
-        // var result = _authService.SignIn(viewModel.Form);
-        // if (result)
-           // return RedirectToAction("SignIn", "Auth");
-
-        viewModel.ErrorMessage = "Incorrect email or password";
-        return View(viewModel);
-
     }
 
     [Route("/signout")]
@@ -113,7 +103,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     public async Task<IActionResult> Details()
     {
         if (!_signInManager.IsSignedIn(User))
-        return RedirectToAction("SignIn", "Account");
+        return RedirectToAction("SignIn", "Auth");
 
         var userEntity = await _userManager.GetUserAsync(User);
 
