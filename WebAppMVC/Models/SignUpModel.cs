@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WebAppMVC.Helpers;
 
-namespace WebAppMVC.Models;
+namespace WebAppMVC.ViewModels;
 
 public class SignUpModel
 {

@@ -7,7 +7,7 @@ namespace WebAppMVC.Helpers.Middlewares;
 public class UserSessionValidationMiddleware(RequestDelegate next)
 {
     private readonly RequestDelegate _next = next;
-    private static bool IsAjaxRequest(HttpRequest request) => request.Headers["X-Requested-With"] == "XMLHttpRequest";
+    private static bool IsAjaxRequest(HttpRequest request) => request.Headers.XRequestedWith == "XMLHttpRequest";
 
 
 

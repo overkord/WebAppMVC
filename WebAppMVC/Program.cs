@@ -1,5 +1,6 @@
 using Infrastructures.Contexts;
 using Infrastructures.Entities;
+using Infrastructures.Services;
 using Microsoft.EntityFrameworkCore;
 using WebAppMVC.Helpers.Middlewares;
 
@@ -20,8 +21,16 @@ builder.Services.ConfigureApplicationCookie(x =>
 {
     x.Cookie.HttpOnly = true;
     x.LoginPath = "/signin";
-    x.LogoutPath = "/signup";
+    x.LogoutPath = "/signout";
+    x.AccessDeniedPath = "/denied";
+
+    x.Cookie.HttpOnly = true;
+    x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    x.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+    x.SlidingExpiration = true;
 });
+
+builder.Services.AddScoped<AddressManager>();
 
 
 var app = builder.Build();
@@ -33,8 +42,8 @@ app.UseRouting();
 
 
 app.UseAuthentication();
-app.UseUserSessionValidation();
 app.UseAuthorization();
+app.UseUserSessionValidation();
 
 
 app.MapControllerRoute(

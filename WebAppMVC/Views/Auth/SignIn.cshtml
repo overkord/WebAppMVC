@@ -6,7 +6,7 @@
 
 <section class="signin">
     <div class="container">
-        <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>
+        <form method="post" asp-controller="Auth" asp-action="SignIn" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" novalidate>
             <div>
                 @Model.ErrorMessage
             </div>
@@ -25,12 +25,12 @@
                     <input asp-for="Form.Password" />
                 </div>
                 <div id="form-remember" class="checkbox-group">
-                  <div class=" "checkbox-group">
-                    <input asp-for="Form.RememberMe" />
+                  <div class=" checkbox-group">
+                    <input asp-for="Form.RememberMe"/>
                     <label asp-for="Form.RememberMe"></label>
-                  </div>"
+                  </div>*
                 </div>
-                <button íd="form-submit" class="btn-theme-s" type="submit">@Model.Title</button>
+                <button id="form-submit" class="btn-theme-s" type="submit">@Model.Title</button>
 
                 <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
             </div>

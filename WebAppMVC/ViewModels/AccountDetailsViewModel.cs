@@ -1,5 +1,4 @@
 ﻿using Infrastructures.Entities;
-using WebAppMVC.Models;
 
 namespace WebAppMVC.ViewModels;
 
@@ -7,13 +6,9 @@ public class AccountDetailsViewModel
 {
     public UserEntity User { get; set; } = null!;
     public string Title { get; set; } = "Account Details";
-    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
-    {
-        ProfileImage = "~/images/profile-image.svg",
-        FirstName = "Albin",
-        LastName = "Larsson", 
-        Email = "Albin-.-@hotmail.com" 
-    };
-    public AccountDetailsAddressInfoModel AddressInfo { get; set; } = new AccountDetailsAddressInfoModel();
+
+    public ProfileInfoViewModel? ProfileInfo { get; set; } 
+    public AccountDetailsBasicInfoViewModel? BasicInfo { get; set; } 
+    public AccountDetailsAddressInfoViewModel? AddressInfo { get; set; } 
 
 }
