@@ -1,0 +1,74 @@
+﻿.subscribe {
+    background-color: $gray-100;
+    padding: 4rem 0;
+
+    .container {
+        width: 55%;
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        form {
+
+            .alternative {
+                margin: 2rem 0;
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+
+                .options {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+
+                    .checkbox-group {
+
+                        .input-group {
+                            gap: 0.6rem;
+                        }
+                    }
+                }
+            }
+
+            .form-email {
+                display: grid;
+                align-items: start;
+                grid-template-columns: 1fr auto;
+                gap: 1.5rem;
+
+
+
+                .input-group {
+                    position: relative;
+                    width: 100%;
+                    
+
+
+                    i {
+                        position: absolute;
+                        left: 15px;
+                        top: 4px;
+                        font-size: 1.3em;
+                    }
+
+                    input {
+                        width: 100%;
+                        text-indent: 3rem;
+
+
+
+                        &::placeholder {
+                            
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

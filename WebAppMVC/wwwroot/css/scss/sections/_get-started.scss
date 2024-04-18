@@ -1,0 +1,39 @@
+﻿#get-started {
+    padding: 0.5rem 0;
+
+    .container {
+        background-color: $gray-100;
+        display: flex;
+        justify-content: center;
+        border-radius: 15px;
+
+        @include lg {
+            display: flex;
+            justify-content: space-evenly;
+            border-radius: 15px;
+        }
+
+        .content {
+            padding: 80px 0;
+            width: 40%;
+
+            .btn-theme {
+                margin-top: 30px;
+                width: 100%;
+
+                @include lg {
+                    width: 30%;
+                }
+            }
+        }
+
+        .photo {
+            display: none;
+            padding: 25px;
+
+            @include lg {
+                display: block;
+            }
+        }
+    }
+}

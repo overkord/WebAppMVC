@@ -150,13 +150,18 @@ public class AccountController(UserManager<UserEntity> userManager, AddressManag
         if (user != null)
         {
             var address = await _addressManager.GetAddressAsync(user.Id);
-            return new AccountDetailsAddressInfoViewModel
+
+            if (address != null)
             {
-                Addressline_1 = address.AddressLine_1,
-                Addressline_2 = address.AddressLine_2,
-                PostalCode = address.PostalCode,
-                City = address.City
-            };
+
+                return new AccountDetailsAddressInfoViewModel
+                {
+                    Addressline_1 = address.AddressLine_1,
+                    Addressline_2 = address.AddressLine_2,
+                    PostalCode = address.PostalCode,
+                    City = address.City
+                };
+            }
         }
 
         return new AccountDetailsAddressInfoViewModel();

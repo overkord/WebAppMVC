@@ -5,10 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using WebAppMVC.Helpers.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
-//builder.Services.AddRouting(x => x.LowercaseUrls = true);
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("LocalDatabas")));
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {
